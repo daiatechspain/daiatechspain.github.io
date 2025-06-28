@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DAIA - Soluciones de IA para Empresas</title>
+  <meta name="description" content="DAIA ofrece soluciones profesionales de Inteligencia Artificial y automatización para tu empresa. Confianza, calidad y resultados reales."/>
+  <meta name="keywords" content="IA, inteligencia artificial, automatización, APIs, chatbots, desarrollo web, soluciones empresariales"/>
+  <meta name="author" content="Alex Gonzalo"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+  <!-- Swiper -->
+  <link href="https://unpkg.com/swiper/swiper-bundle.min.css" rel="stylesheet"/>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html, body{scroll-behavior:smooth;overflow-x:hidden;}
+    body{font-family:'Inter',sans-serif;line-height:1.6;color:#222;background:#fafafa}
+    a{text-decoration:none;color:inherit;}
+    img{display:block;max-width:100%}
+    .container{width:90%;max-width:1200px;margin:0 auto;padding-top:120px}
+
+    /* Header */
+    header{position:fixed;top:0;left:0;width:100%;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);z-index:1000}
+    .navbar{display:flex;align-items:center;justify-content:space-between;padding:15px 0}
+    .logo-img{height:80px}
+    nav a{margin-left:25px;font-weight:600;transition:color .3s}
+    nav a:hover{color:#00d1b2}
+
+    /* Hero */
+    .hero{height:90vh;display:flex;align-items:center;justify-content:center;position:relative;background:url('https://source.unsplash.com/1600x900/?technology,ai')center/cover no-repeat}
+    .hero::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,.2)}
+    .hero-content{position:relative;text-align:center;color:#fff;max-width:800px;padding:0 20px;z-index:1}
+    .hero-content h1{font-size:3rem;margin-bottom:20px;text-shadow:0 2px 8px rgba(0,0,0,0.5)}
+    .hero-content p{font-size:1.2rem;margin-bottom:30px;text-shadow:0 1px 5px rgba(0,0,0,0.4)}
+    .btn-primary{padding:12px 30px;background:#00d1b2;color:#fff;border-radius:8px;font-weight:600;}
+
+    /* Sections */
+    section{padding:80px 0}
+    section h2{text-align:center;font-size:2.2rem;margin-bottom:40px;color:#00d1b2}
+
+    /* Services */
+    .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px}
+    .service-card{background:#fff;border-radius:16px;padding:30px;box-shadow:0 10px 20px rgba(0,0,0,.05);position:relative}
+    .service-card .icon{font-size:2rem;margin-bottom:15px;color:#00d1b2}
+    .service-card h3{margin-bottom:15px;font-size:1.4rem;color:#00a78e;display:flex;align-items:center}
+    .service-card h3 span.emoji{margin-right:8px}
+    .service-card p{margin-bottom:20px;color:#555}
+    .read-more{font-weight:600;color:#008f7a;margin-top:10px;display:inline-block}
+
+    /* Service Details */
+    .service-detail{background:#fff;border-radius:12px;padding:40px;margin-bottom:50px;box-shadow:0 10px 20px rgba(0,0,0,.05)}
+    .service-detail h2{margin-bottom:20px;color:#00a78e}
+    .service-detail ul{list-style:disc inside;color:#333;margin-bottom:20px}
+    .service-detail p{color:#555;margin-bottom:20px}
+
+    /* Projects: larger cards */
+    .projects-carousel .swiper-container{padding-bottom:50px}
+    .projects-carousel .swiper-slide{min-height:500px;display:flex;align-items:center;justify-content:center}
+    .slide-content{padding:60px;background:#fff;border-radius:12px;box-shadow:0 8px 16px rgba(0,0,0,.1);text-align:left;max-width:800px}
+    .slide-content h4{margin-bottom:15px;color:#00a78e;font-size:1.8rem}
+    .slide-content p{margin-bottom:20px;color:#555;font-size:1rem;line-height:1.5}
+    .project-more{font-weight:600;color:#008f7a;display:inline-block}
+
+    /* Project Blog Format */
+    .project-detail{background:#fff;border-radius:12px;padding:40px;margin-bottom:50px;box-shadow:0 10px 20px rgba(0,0,0,.05)}
+    .project-detail h2{margin-bottom:20px;color:#00a78e}
+    .project-detail .meta{font-size:0.9rem;color:#999;margin-bottom:20px}
+    .project-detail p{color:#555;margin-bottom:20px;line-height:1.6}
+
+    /* Testimonials */
+    .testimonials{background:#00d1b2;color:#fff;padding:8px 0}
+    .testimonial-slider{max-width:800px;margin:0 auto;display:flex;justify-content:center}
+    .testimonial{padding:8px;text-align:center}
+    .testimonial p{font-style:italic;margin-bottom:8px;font-size:.95rem}
+    .testimonial h5{font-weight:700;font-size:1rem}
+
+    /* Blog & Contact */
+    #blog ul,#contact ul{max-width:600px;margin:0 auto;padding:60px;background:#fff;border-radius:12px;box-shadow:0 8px 16px rgba(0,0,0,.05)}
+    #blog ul li,#contact ul li{margin-bottom:10px;color:#333;font-size:1rem}
+    #blog ul li a{color:#00a78e;font-weight:600}
+    #blog h2,#contact h2{margin-bottom:20px}
+
+    /* Fixed Form */
+    #formulario-contacto{position:fixed;bottom:20px;right:20px;background:#fff;padding:20px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.1);width:300px;}
+    #formulario-contacto h2{font-size:1.2rem;margin-bottom:15px;color:#00d1b2}
+    #formulario-contacto input{width:100%;padding:10px;margin-bottom:10px;border:1px solid #ccc;border-radius:8px}
+    #formulario-contacto button{width:100%;padding:10px;background:#00d1b2;color:#fff;border:none;border-radius:8px;}
+
+    /* Footer */
+    footer{background:#111;color:#bbb;padding:40px 0}
+    .footer-links{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;margin-bottom:20px}
+    .footer-links a{font-size:.95rem;color:#bbb}
+    .social-icons{text-align:center;margin-bottom:20px}
+    .social-icons a{margin:0 10px;font-size:1.3rem;color:#bbb}
+    .copyright{text-align:center;font-size:.85rem}
+  </style>
+</head>
+<body>
+  <div id="top"></div>
+  <header>
+    <div class="container navbar">
+      <a href="#top"><img src="assets/imagen.png" alt="DAIA Logo" class="logo-img" /></a>
+      <nav>
+        <a href="#services">Servicios</a>
+        <a href="#projects">Proyectos</a>
+        <a href="#testimonials">Testimonios</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" data-aos="fade-up">
+    <div class="hero-content">
+      <h1 data-aos="fade-down">Transformamos tu Empresa con IA</h1>
+      <p data-aos="fade-up">Soluciones a medida de Inteligencia Artificial, automatización y APIs que impulsan tu productividad.</p>
+      <a href="#services" class="btn-primary">Ver Servicios</a>
+    </div>
+  </section>
+
+  <section id="services" class="container" data-aos="fade-up">
+    <h2>Servicios Profesionales</h2>
+    <div class="services-grid">
+      <div class="service-card" data-aos="fade-right">
+        <div class="icon">
+        </div>
+        <h3><span class="emoji">🤖</span>Automatización de Procesos</h3>
+        <p>Flujos automáticos inteligentes para tus operaciones críticas.</p>
+        <a class="read-more" href="#detail-automatizacion">Más información →</a>
+      </div>
+      <div class="service-card large" data-aos="fade-left">
+        <h3><span class="emoji">💬</span>Chatbots & Asistentes IA</h3>
+        <p>Atención 24/7 y experiencias conversacionales personalizadas con multicanal y análisis contextual.</p>
+        <a class="read-more" href="#detail-chatbots">Más información →</a>
+      </div>
+      <div class="service-card" data-aos="fade-right">
+        <h3><span class="emoji">🖼️</span>Generación de Contenido</h3>
+        <p>Automatiza textos, imágenes y campañas con IA de última generación.</p>
+        <a class="read-more" href="#detail-contenido">Más información →</a>
+      </div>
+      <div class="service-card" data-aos="fade-left">
+        <h3><span class="emoji">🔗</span>Integración de APIs</h3>
+        <p>Conectores seguros para tus sistemas y servicios en la nube.</p>
+        <a class="read-more" href="#detail-apis">Más información →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Details -->
+  <section id="detail-automatizacion" class="service-detail container" data-aos="fade-up">
+    <h2>Automatización de Procesos</h2>
+    <p>Integramos herramientas y generamos flujos que optimizan tus operaciones.</p>
+    <ul>
+      <li>Triggers personalizados</li>
+      <li>Integración CRM/ERP</li>
+      <li>Dashboards en tiempo real</li>
+    </ul>
+  </section>
+
+  <section id="detail-chatbots" class="service-detail container" data-aos="fade-up">
+    <h2>Chatbots & Asistentes IA</h2>
+    <p>Implementamos bots entrenados para entender contexto y responder naturalmente.</p>
+    <ul>
+      <li>Soporte multicanal</li>
+      <li>Análisis de sentimiento</li>
+      <li>Escalado inteligente</li>
+    </ul>
+  </section>
+
+  <section id="detail-contenido" class="service-detail container" data-aos="fade-up">
+    <h2>Generación de Contenido</h2>
+    <p>Creación automática de material optimizado para SEO y engagement.</p>
+    <ul>
+      <li>Blogs y guías SEO</li>
+      <li>Imágenes AI</li>
+      <li>Campañas email</li>
+    </ul>
+  </section>
+
+  <section id="detail-apis" class="service-detail container" data-aos="fade-up">
+    <h2>Integración de APIs</h2>
+    <p>Conectamos sistemas internos y externos con APIs robustas.</p>
+    <ul>
+      <li>Google Sheets, HubSpot</li>
+      <li>OpenAI GPT</li>
+      <li>Monitoreo y escalabilidad</li>
+    </ul>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="container projects-carousel" data-aos="fade-up">
+    <h2>Proyectos Destacados</h2>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><div class="slide-content"><h4>Chatbot WhatsApp</h4><div class="meta">Jul 2025 · Twilio · GPT-4</div><p>Implementación completa de un asistente de ventas y soporte integrado.</p><a class="project-more" href="#project1-blog">Leer más →</a></div></div>
+        <div class="swiper-slide"><div class="slide-content"><h4>Gestión de Flujos</h4><div class="meta">Jun 2025 · Make · n8n</div><p>Pipeline automatizado conectando CRM, email y almacenamiento de datos.</p><a class="project-more" href="#project2-blog">Leer más →</a></div></div>
+        <div class="swiper-slide"><div class="slide-content"><h4>Análisis Predictivo</h4><div class="meta">May 2025 · Python · Power BI</div><p>Modelo de pronóstico de ventas y dashboards dinámicos.</p><a class="project-more" href="#project3-blog">Leer más →</a></div></div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
+  <!-- Project Blog Sections -->
+  <section id="project1-blog" class="project-detail container" data-aos="fade-up">
+    <h2>Chatbot WhatsApp</h2>
+    <div class="meta">Julio 2025 · Twilio · GPT-4</div>
+    <p>Desarrollé un chatbot para WhatsApp capaz de gestionar consultas y ventas automáticamente, reduciendo tiempo de respuesta en un 80%.</p>
+    <p><strong>Características:</strong> flujo conversacional, escalado a humano, analíticas de interacción.</p>
+  </section>
+
+  <section id="project2-blog" class="project-detail container" data-aos="fade-up">
+    <h2>Gestión de Flujos</h2>
+    <div class="meta">Junio 2025 · Make · n8n</div>
+    <p>Creé una tubería de automatización conectando CRM, email y sistemas internos, eliminando tareas manuales y errores.</p>
+    <p><strong>Beneficios:</strong> reducción de 50% en tiempos de proceso, reportes en tiempo real.</p>
+  </section>
+
+  <section id="project3-blog" class="project-detail container" data-aos="fade-up">
+    <h2>Análisis Predictivo</h2>
+    <div class="meta">Mayo 2025 · Python · Power BI</div>
+    <p>Implementé modelos de machine learning para pronóstico de ventas y paneles interactivos en Power BI para la toma de decisiones.</p>
+    <p><strong>Resultados:</strong> mejora del 30% en precisión de predicción, dashboards accesibles.</p>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="testimonials" data-aos="fade-up">
+    <div class="container testimonial-slider">
+      <h2>Testimonios</h2>
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide testimonial"><p>“Excelente soporte y resultados inmediatos.”</p><h5>- María López</h5></div>
+          <div class="swiper-slide testimonial"><p>“Trabajos impecables, muy profesionales.”</p><h5>- Javier Ruiz</h5></div>
+          <div class="swiper-slide testimonial"><p>“Sus soluciones IA transformaron nuestro negocio.”</p><h5>- Elena Martín</h5></div>
+          <div class="swiper-slide testimonial"><p>“Generación de contenido de alta calidad.”</p><h5>- Luis Fernández</h5></div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog -->
+  <section id="blog" class="container" data-aos="fade-up">
+    <h2>Artículos Recientes</h2>
+    <ul>
+      <li><a href="#detail-article-whatsapp">Automatización de WhatsApp</a></li>
+      <li><a href="#detail-article-ia">IA Generativa Empresarial</a></li>
+      <li><a href="#detail-article-prompts">Diseño de Prompts</a></li>
+      <li><a href="#detail-article-red">Red Neuronal en Python</a></li>
+    </ul>
+  </section>
+
+  <!-- Article Details -->
+  <section id="detail-article-whatsapp" class="project-detail container" data-aos="fade-up">
+    <h2>Automatización de WhatsApp</h2>
+    <div class="meta">Abril 2025</div>
+    <p>Guía completa para integrar Make y GPT-4 con WhatsApp, paso a paso.</p>
+  </section>
+  <section id="detail-article-ia" class="project-detail container" data-aos="fade-up">
+    <h2>IA Generativa Empresarial</h2>
+    <div class="meta">Marzo 2025</div>
+    <p>Análisis de casos de uso reales y cómo implementarlos en tu empresa.</p>
+  </section>
+  <section id="detail-article-prompts" class="project-detail container" data-aos="fade-up">
+    <h2>Diseño de Prompts</h2>
+    <div class="meta">Febrero 2025</div>
+    <p>Mejores prácticas y ejemplos para obtener resultados óptimos con GPT.</p>
+  </section>
+  <section id="detail-article-red" class="project-detail container" data-aos="fade-up">
+    <h2>Red Neuronal en Python</h2>
+    <div class="meta">Enero 2025</div>
+    <p>Tutorial paso a paso para construir tu primera red neuronal desde cero.</p>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="container" data-aos="fade-up">
+    <h2>Contacto Profesional</h2>
+    <ul>
+      <li><strong>Email:</strong> daiatechspain@gmail.com</li>
+      <li><strong>Instagram:</strong> @daia.ia</li>
+      <li><strong>TikTok:</strong> @daia.ia</li>
+    </ul>
+  </section>
+
+  <!-- Formulario Fijo -->
+  <div id="formulario-contacto" data-aos="fade-up">
+    <h2>¿Hablamos?</h2>
+    <form id="formulario">
+      <input type="text" id="nombre" name="nombre" placeholder="Nombre completo" required/>
+      <input type="email" id="correo" name="correo" placeholder="Correo electrónico" required/>
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="#services">Servicios</a>
+        <a href="#projects">Proyectos</a>
+        <a href="#testimonials">Testimonios</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Contacto</a>
+      </div>
+      <div class="social-icons">
+        <span>Instagram: @daia.ia</span>
+        <span>TikTok: @daia.ia</span>
+      </div>
+      <div class="copyright">&copy; 2025 DAIA - Todos los derechos reservados.</div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+    new Swiper('.projects-carousel .swiper-container', { pagination: { el: '.swiper-pagination', clickable: true }, loop: true});
+    new Swiper('.testimonials .swiper-container', { pagination: { el: '.swiper-pagination', clickable: true }, loop: true, autoplay: { delay: 5000}});
+
+    // Toggle details
+    document.querySelectorAll('.read-more, .project-more').forEach(btn => {
+    btn.addEventListener('click', e => {
+    e.preventDefault();
+    // Obtener destino desde el href
+    const targetSelector = btn.getAttribute('href');
+    const section = document.querySelector(targetSelector);
+    if (!section) return;
+    // Altura del header + margen extra
+    const headerHeight = document.querySelector('header').offsetHeight;
+    const extraOffset = 20;
+    // Posición final
+    const topPos = section.getBoundingClientRect().top + window.pageYOffset
+                   - headerHeight - extraOffset;
+    window.scrollTo({ top: topPos, behavior: 'smooth' });
+    });
+    });
+
+    // Webhook form
+    const scriptURL = 'https://hook.eu2.make.com/svgkdty7lhqxwl3bm1lpf9ohtp9beipn';
+    document.getElementById("formulario").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const nombre = document.getElementById("nombre").value.trim();
+      const correo = document.getElementById("correo").value.trim();
+      if (nombre && correo.includes("@")) {
+        fetch(scriptURL, { method: 'POST', body: JSON.stringify({ nombre, correo }), headers: { 'Content-Type': 'application/json' } })
+          .then(() => { alert("¡Bienvenido, " + nombre + "!"); this.reset(); })
+          .catch(() => alert("Ocurrió un error. Intenta de nuevo."));
+      } else alert("Completa correctamente los campos.");
+    });
+  // Función genérica de scroll con offset
+function scrollWithOffset(e, selector) {
+  e.preventDefault();
+  const section = document.querySelector(selector);
+  if (!section) return;
+  const headerHeight = document.querySelector('header').offsetHeight;
+  const extraOffset = 20;
+  const elementY = section.getBoundingClientRect().top + window.pageYOffset;
+  const offsetY = elementY - headerHeight - extraOffset;
+  window.scrollTo({ top: offsetY, behavior: 'smooth' });
+}
+
+// Selecciona todos los enlaces que apuntan a secciones internas:
+//  • .read-more y .project-more (Proyectos/Servicios)
+//  • los <a> dentro de #blog
+document.querySelectorAll('.read-more, .project-more, #blog a').forEach(link => {
+  link.addEventListener('click', e => {
+    const href = link.getAttribute('href');
+    scrollWithOffset(e, href);
+  });
+});
+
+  </script>
+</body>
+</html>
