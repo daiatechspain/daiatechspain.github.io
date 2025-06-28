@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DAIA - Laboratorio de Inteligencia Artificial</title>
+  <meta name="description" content="DAIA es un laboratorio profesional y experimental de Inteligencia Artificial, donde exploramos automatización, APIs, generación de contenido y más.">
+  <meta name="keywords" content="IA, inteligencia artificial, automatización, GPT, APIs, Make, Twilio, laboratorio IA, proyectos IA">
+  <meta name="author" content="Alex - DAIA">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* 🎨 DECORACIÓN GENERAL */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* 🎨 FORMULARIO */
+    #formulario-contacto {
+      background-color: #f4f4f4;
+      padding: 30px;
+      margin-top: 50px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    #formulario-contacto h2 {
+      margin-bottom: 20px;
+      color: #1c1c1c;
+    }
+
+    #formulario input {
+      width: 90%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    #formulario button {
+      background-color: #00d1b2;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    #formulario button:hover {
+      background-color: #00a98e;
+    }
+
+    /* 🎨 PROYECTOS */
+    .proyecto-box {
+      background-color: #f4f4f4;
+      padding: 20px;
+      margin: 10px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>DAIA - Laboratorio de Inteligencia Artificial</h1>
+    <p>Innovación y experimentación en el mundo de la IA</p>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#articulos">Artículos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio" class="fade-in">
+      <h2>¿Qué es DAIA?</h2>
+      <p>DAIA es un laboratorio digital donde se experimenta con las tecnologías más avanzadas en el campo de la Inteligencia Artificial. Nuestro objetivo es aprender, probar, compartir y mejorar todo lo relacionado con la automatización, la generación de contenido, el desarrollo con APIs y la creación de soluciones prácticas para problemas reales.</p>
+      <p>Este sitio web es tanto un espacio de aprendizaje como una plataforma profesional para mostrar avances, herramientas, guías y proyectos relacionados con IA. Queremos compartir el conocimiento de forma clara, útil y aplicable para empresas, desarrolladores y cualquier persona interesada en el mundo de la tecnología.</p>
+    </section>
+
+    <section id="proyectos" class="fade-in">
+      <h2>Proyectos en desarrollo</h2>
+      <div class="proyecto-box"><strong>Asistente virtual para WhatsApp</strong><br> Automatización inteligente mediante Twilio, Make y la API de GPT para responder consultas y ofrecer soporte 24/7.</div>
+      <div class="proyecto-box"><strong>Generador de imágenes con IA</strong><br> Sistema de generación automática de imágenes con prompts usando modelos de imagen como DALL·E y Stability AI.</div>
+      <div class="proyecto-box"><strong>Webs automatizadas para empresas</strong><br> Páginas web que se actualizan solas a partir de datos de formularios, hojas de cálculo y APIs externas.</div>
+      <div class="proyecto-box"><strong>Detector de fraude con IA</strong><br> Prototipo que analiza transacciones o formularios para detectar patrones sospechosos mediante redes neuronales.</div>
+    </section>
+
+    <section id="articulos" class="fade-in">
+      <h2>Artículos recientes</h2>
+      <p>Publicamos artículos técnicos y prácticos sobre Inteligencia Artificial. Aquí puedes leer sobre:</p>
+      <ul>
+        <li><strong>Cómo usar Make.com y Twilio para automatizar WhatsApp con IA</strong></li>
+        <li><strong>Qué es la IA generativa y cómo puedes aprovecharla hoy mismo</strong></li>
+        <li><strong>Los mejores prompts para obtener resultados profesionales con GPT</strong></li>
+        <li><strong>Guía paso a paso para crear tu primera red neuronal</strong></li>
+      </ul>
+      <p>Cada artículo tiene ejemplos, código y una explicación detallada orientada tanto a principiantes como a usuarios avanzados.</p>
+    </section>
+
+    <section id="contacto" class="fade-in">
+      <h2>Contacto profesional</h2>
+      <p>¿Quieres colaborar, aprender más o necesitas ayuda con un proyecto de IA? Ponte en contacto:</p>
+      <ul>
+        <li>Email: daiatechspain@gmail.com</li>
+        <li>Instagram: <a href="#">@daia.ia</a></li>
+        <li>TikTok: <a href="#">@daia.ia</a></li>
+      </ul>
+    </section>
+
+    <section id="formulario-contacto" class="fade-in">
+      <h2>¿Hablamos?</h2>
+      <form id="formulario">
+        <input type="text" id="nombre" name="nombre" placeholder="Nombre completo" required>
+        <input type="email" id="correo" name="correo" placeholder="Correo electrónico" required>
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 DAIA - Todos los derechos reservados. Sitio experimental de Inteligencia Artificial creado por Alex Gonzalo.</p>
+  </footer>
+
+  <script>
+    const scriptURL = 'https://hook.eu2.make.com/svgkdty7lhqxwl3bm1lpf9ohtp9beipn';
+
+    document.getElementById("formulario").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const nombre = document.getElementById("nombre").value.trim();
+      const correo = document.getElementById("correo").value.trim();
+
+      if (nombre && correo.includes("@")) {
+        fetch(scriptURL, {
+          method: 'POST',
+          body: JSON.stringify({ nombre, correo }),
+          headers: { 'Content-Type': 'application/json' }
+        })
+        .then(() => {
+          alert("¡Bienvenido al laboratorio DAIA, " + nombre + "!");
+          document.getElementById("formulario").reset();
+        })
+        .catch(error => {
+          console.error("Error al enviar:", error);
+          alert("Ocurrió un error. Intenta de nuevo.");
+        });
+      } else {
+        alert("Por favor, completa correctamente todos los campos.");
+      }
+    });
+
+    window.addEventListener("scroll", () => {
+      document.querySelectorAll('.fade-in').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight) {
+          el.classList.add("visible");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
